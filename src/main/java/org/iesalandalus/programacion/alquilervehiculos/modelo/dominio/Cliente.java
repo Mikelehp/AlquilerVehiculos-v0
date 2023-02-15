@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Cliente {
 	
 		//Atributos
-		private static final String ER_NOMBRE="[A-ZÁÉÍÓÚÑ][a-záéíóúüñ]+([ ][A-ZÁÉÍÓÚÑ][a-záéíóúüñ]+)*";
+		private static final String ER_NOMBRE="[A-Z][a-z]+([ ]?[a-zA-Z]+)*";
 		private static final String ER_DNI = "([0-9]{8})([A-Z])"; 
 		private static final String ER_TELEFONO= "[96][0-9]{8}";
 		
@@ -30,10 +30,11 @@ public class Cliente {
 			setTelefono(cliente.getTelefono());
 		}
 		
-		//Getter and Setters con sus respectivos null pointer exception
+		//Getter and Setters con sus Rçespectivos Filtros
 		public String getNombre() {
 			return nombre;
 		}
+		//Filtro de nombre
 		public void setNombre(String nombre) {
 			if (nombre == null) {
 				throw new NullPointerException("ERROR: El nombre no puede ser nulo.");
@@ -48,6 +49,7 @@ public class Cliente {
 		public String getDni() {
 			return dni;
 		}
+		//Filtro de dni
 		private void setDni(String dni) {
 			if (dni == null) {
 				throw new NullPointerException("ERROR: El DNI no puede ser nulo.");
@@ -88,8 +90,8 @@ public class Cliente {
 			this.telefono = telefono;
 		}
 	
-		public static final Cliente getClienteConDni(String dni) {
-			return new Cliente("Bob Esponja", dni, "950112233");
+		public static Cliente getClienteConDni(String dni) {
+			return new Cliente("Juan", dni, "950112233");
 		}
 		@Override
 		public int hashCode() {
@@ -111,9 +113,4 @@ public class Cliente {
 			return String.format("%s - %s (%s)",nombre,dni,telefono);
 		}
 		
-		
-		
-		
-		
-
 }
