@@ -4,25 +4,24 @@ import java.util.Objects;
 
 public class Turismo {
 
-	//Atributos
+	// Atributos
 	private static final String ER_MARCA = "(^[A-Z][a-z]+)|(^[A-Z][a-z]+\s[A-Z][a-z]+)|(^[A-Z]+)|(^[A-Z][a-z]+-[A-Z][a-z]+)|(^[A-Z][a-z]+[A-Z][a-z]+)";
 	private static final String ER_MATRICULA = "[0-9]{4}[BCDFGHJKLMNPQRSTVWXYZ]{3}";
-	
+
 	private String marca;
 	private String modelo;
 	private int cilindrada;
 	private String matricula;
-	
-	
-	
-	//Métodos:
+
+	// Métodos:
 	public Turismo(String marca, String modelo, int cilindrada, String matricula) {
-		super();
+
 		setMarca(marca);
 		setModelo(modelo);
 		setCilindrada(cilindrada);
 		setMatricula(matricula);
 	}
+
 	public Turismo(Turismo turismo) {
 		if (turismo == null) {
 			throw new NullPointerException("ERROR: No es posible copiar un turismo nulo.");
@@ -32,13 +31,13 @@ public class Turismo {
 		setCilindrada(turismo.getCilindrada());
 		setMatricula(turismo.getMatricula());
 	}
-	
-	//Getters and Setters con sus Respectivos Filtros 
+
+	// Getters and Setters con sus Respectivos Filtros
 	public String getMarca() {
 		return marca;
 	}
-	
-	//Filtro de marca
+
+	// Filtro de marca
 	private void setMarca(String marca) {
 		if (marca == null) {
 			throw new NullPointerException("ERROR: La marca no puede ser nula.");
@@ -48,10 +47,12 @@ public class Turismo {
 		}
 		this.marca = marca;
 	}
+
 	public String getModelo() {
 		return modelo;
 	}
-	//Filtro de modelo
+
+	// Filtro de modelo
 	private void setModelo(String modelo) {
 		if (modelo == null) {
 			throw new NullPointerException("ERROR: El modelo no puede ser nulo.");
@@ -61,20 +62,24 @@ public class Turismo {
 		}
 		this.modelo = modelo;
 	}
+
 	public int getCilindrada() {
 		return cilindrada;
 	}
-	//Filtro cilindrada 0-5000
+
+	// Filtro cilindrada 0-5000
 	private void setCilindrada(int cilindrada) {
 		if (cilindrada > 5000 || cilindrada <= 0) {
 			throw new IllegalArgumentException("ERROR: La cilindrada no es correcta.");
 		}
 		this.cilindrada = cilindrada;
 	}
+
 	public String getMatricula() {
 		return matricula;
 	}
-	//Filtro de matrícula
+
+	// Filtro de matrícula
 	private void setMatricula(String matricula) {
 		if (matricula == null) {
 			throw new NullPointerException("ERROR: La matrícula no puede ser nula.");
@@ -84,14 +89,17 @@ public class Turismo {
 		}
 		this.matricula = matricula;
 	}
+
 	public static Turismo getTurismoConMatricula(String matricula) {
 		return new Turismo("Toyota", "5", 4, matricula);
 	}
-	//Equals y hash
+
+	// Equals y hash
 	@Override
 	public int hashCode() {
 		return Objects.hash(matricula);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -103,14 +111,10 @@ public class Turismo {
 		Turismo other = (Turismo) obj;
 		return Objects.equals(matricula, other.matricula);
 	}
+
 	@Override
 	public String toString() {
-		return String.format("%s %s (%sCV) - %s", marca, modelo, cilindrada,
-				matricula);
+		return String.format("%s %s (%sCV) - %s", marca, modelo, cilindrada, matricula);
 	}
-	
-	
-	
-	
-	
+
 }
