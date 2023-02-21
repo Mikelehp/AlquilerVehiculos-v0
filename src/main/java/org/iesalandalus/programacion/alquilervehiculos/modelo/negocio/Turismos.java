@@ -54,7 +54,7 @@ public class Turismos {
 
 	}
 
-	// Método borrar turismo de arrayList con respectivos filtros
+	// Método borrar alquiler de arrayList con respectivos filtros
 	public void borrar(Turismo turismo) throws OperationNotSupportedException {
 		if (turismo == null) {
 			throw new NullPointerException("ERROR: No se puede borrar un turismo nulo.");
@@ -62,7 +62,7 @@ public class Turismos {
 		if (coleccionTurismos.contains(turismo)) {
 			coleccionTurismos.remove(turismo);
 		} else {
-			throw new OperationNotSupportedException("ERROR: No existe ningún turismo con esa matrícula.");
+			throw new OperationNotSupportedException("ERROR: No existe ese alquiler.");
 		}
 
 	}

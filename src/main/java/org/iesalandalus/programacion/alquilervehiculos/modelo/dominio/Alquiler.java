@@ -37,7 +37,7 @@ public class Alquiler {
 		setTurismo(new Turismo(alquiler.getTurismo()));
 		setFechaAlquiler(alquiler.getFechaAlquiler());
 
-		if (alquiler.getFechaDevolucion()!= null) {
+		if (alquiler.getFechaDevolucion() != null) {
 			setFechaDevolucion(alquiler.getFechaDevolucion());
 		}
 
@@ -115,8 +115,6 @@ public class Alquiler {
 			return 0;
 		} else {
 
-			
-
 			int factorCilindrada = turismo.getCilindrada() / 10;
 			int numDias = (int) (ChronoUnit.DAYS.between(fechaAlquiler, fechaDevolucion));
 			int precio = (PRECIO_DIA + factorCilindrada) * numDias;
@@ -145,7 +143,7 @@ public class Alquiler {
 	@Override
 	public String toString() {
 		if (fechaDevolucion == null) {
-			return String.format("%s <---> %s, %s - %s (%d€)", cliente, turismo, fechaAlquiler.format(FORMATO_FECHA), 
+			return String.format("%s <---> %s, %s - %s (%d€)", cliente, turismo, fechaAlquiler.format(FORMATO_FECHA),
 					"Aún no devuelto", getPrecio());
 		} else {
 			return String.format("%s <---> %s, %s - %s (%d€)", cliente, turismo, fechaAlquiler.format(FORMATO_FECHA),

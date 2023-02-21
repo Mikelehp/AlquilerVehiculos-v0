@@ -15,15 +15,16 @@ public class Cliente {
 	private String telefono;
 
 	// Métodos:
-	
-	//Método constructor
+
+	// Método constructor
 	public Cliente(String nombre, String dni, String telefono) {
 		setNombre(nombre);
 		setDni(dni);
 		setTelefono(telefono);
 
 	}
-	//Método constructor copia
+
+	// Método constructor copia
 	public Cliente(Cliente cliente) {
 		if (cliente == null) {
 			throw new NullPointerException("ERROR: No es posible copiar un cliente nulo.");
@@ -68,6 +69,7 @@ public class Cliente {
 		this.dni = dni;
 	}
 
+	// Comprobacion de Letra Dni (3 dias de clase)
 	private boolean comprobarLetraDni(String dni) {
 		boolean comprobaciondni = false;
 		final char[] LETRAS_DNI = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q',
@@ -87,6 +89,7 @@ public class Cliente {
 		return telefono;
 	}
 
+	// Set Telefono
 	public void setTelefono(String telefono) {
 		if (telefono == null) {
 			throw new NullPointerException("ERROR: El teléfono no puede ser nulo.");
@@ -97,6 +100,7 @@ public class Cliente {
 		this.telefono = telefono;
 	}
 
+	// Buscador por Dni
 	public static Cliente getClienteConDni(String dni) {
 		return new Cliente("Juan", dni, "950112233");
 	}
