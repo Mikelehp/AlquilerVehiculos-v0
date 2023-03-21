@@ -117,8 +117,7 @@ public class Alquiler {
 
 			int factorCilindrada = turismo.getCilindrada() / 10;
 			int numDias = (int) (ChronoUnit.DAYS.between(fechaAlquiler, fechaDevolucion));
-			int precio = (PRECIO_DIA + factorCilindrada) * numDias;
-			return precio;
+			return (PRECIO_DIA + factorCilindrada) * numDias;
 		}
 	}
 

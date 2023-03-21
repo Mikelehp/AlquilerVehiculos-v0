@@ -20,6 +20,7 @@ import javax.naming.OperationNotSupportedException;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Alquiler;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Cliente;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Turismo;
+import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.iCliente;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.Alquileres;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.Clientes;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.Turismos;
@@ -128,7 +129,7 @@ public class ModeloTest {
 	@Test
 	void buscarClienteLlamaClientesBuscar() {
 		assertDoesNotThrow(() -> modelo.insertar(cliente));
-		Cliente clienteBuscado = modelo.buscar(cliente);
+		iCliente clienteBuscado = modelo.buscar(cliente);
 		verify(clientes).buscar(cliente);
 		assertNotSame(cliente, clienteBuscado);
 	}

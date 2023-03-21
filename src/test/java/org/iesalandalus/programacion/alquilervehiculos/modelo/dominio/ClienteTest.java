@@ -108,13 +108,13 @@ public class ClienteTest {
 	
 	@Test
 	void equalsYHasCodeConsistentes() {
-		Cliente cliente = new Cliente(NOMBRE_VALIDO, DNI_VALIDO, TELEFONO_VALIDO);
-		Cliente clienteIgual = Cliente.getClienteConDni(DNI_VALIDO);
+		iCliente cliente = new Cliente(NOMBRE_VALIDO, DNI_VALIDO, TELEFONO_VALIDO);
+		iCliente clienteIgual = Cliente.getClienteConDni(DNI_VALIDO);
 		assertEquals(cliente, cliente);
 		assertEquals(cliente, clienteIgual);
 		assertEquals(clienteIgual, cliente);
 		assertEquals(cliente.hashCode(), clienteIgual.hashCode());
-		Cliente clienteDiferente = new Cliente(NOMBRE_VALIDO, "11111111H", TELEFONO_VALIDO);
+		iCliente clienteDiferente = new Cliente(NOMBRE_VALIDO, "11111111H", TELEFONO_VALIDO);
 		assertNotEquals(cliente, "");
 		assertNotEquals(cliente, clienteDiferente);
 		assertNotEquals(cliente.hashCode(), clienteDiferente.hashCode());
